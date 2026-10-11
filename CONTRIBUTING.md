@@ -20,7 +20,7 @@ pnpm check
 pnpm dev
 ```
 
-Use Node 20.19 or later and pnpm 11 or later.
+Use Node 22.13 or later and pnpm 11 or later.
 
 ## Development commands
 

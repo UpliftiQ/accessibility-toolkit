@@ -4,7 +4,7 @@ import { fileURLToPath, URL } from "node:url";
 
 export default defineConfig({
   plugins: [react()],
-  base: process.env.GITHUB_ACTIONS ? "/accessibility-toolkit/" : "/",
+  base: process.env.VITE_BASE_PATH ?? "/",
   resolve: {
     alias: {
       "@upliftiq/caption-player": fileURLToPath(new URL("../../packages/caption-player/src/index.ts", import.meta.url)),
