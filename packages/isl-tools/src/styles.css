@@ -1,0 +1,29 @@
+.upli-sign-card { --upli-ink: #11152f; --upli-paper: #fffdf8; --upli-line: #d9d5cb; --upli-accent: #6757ff; color: var(--upli-ink); background: var(--upli-paper); border: 1px solid var(--upli-line); border-radius: 1rem; overflow: hidden; font: 400 1rem/1.5 Inter, ui-sans-serif, system-ui, sans-serif; }
+.upli-sign-card * { box-sizing: border-box; }
+.upli-sign-card video:focus-visible, .upli-sign-card summary:focus-visible { outline: 3px solid #005fcc; outline-offset: 3px; }
+.upli-sign-card > header { padding: 1.2rem; }
+.upli-sign-card > header > span { color: var(--upli-accent); font-size: .68rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+.upli-sign-card h2 { margin: .25rem 0 0; font-size: 1.35rem; line-height: 1.2; }
+.upli-sign-card header p { margin: .45rem 0 0; color: #5d6075; font-size: .9rem; }
+.upli-sign-video-frame { padding: .5rem; background: var(--upli-ink); }
+.upli-sign-video-frame video { display: block; width: 100%; max-height: 34rem; background: #050611; object-fit: contain; }
+.upli-sign-metadata { padding: 1rem 1.2rem; border-top: 1px solid var(--upli-line); }
+.upli-sign-metadata summary { width: fit-content; color: var(--upli-accent); font-weight: 800; cursor: pointer; }
+.upli-sign-metadata dl { display: grid; grid-template-columns: 1fr 1fr; gap: .7rem; margin: 1rem 0; }
+.upli-sign-metadata dl div { padding: .7rem; background: #f1eee7; border-radius: .55rem; }
+.upli-sign-metadata dt { color: #626578; font-size: .68rem; font-weight: 800; letter-spacing: .05em; text-transform: uppercase; }
+.upli-sign-metadata dd { margin: .25rem 0 0; font-size: .83rem; }
+.upli-metadata-review, .upli-metadata-ready, .upli-metadata-missing { margin: .8rem 0 0; padding: .8rem; border-radius: .55rem; font-size: .82rem; }
+.upli-metadata-review { background: #fff7d7; border-left: .35rem solid #8b6810; }
+.upli-metadata-review[data-has-errors="true"], .upli-metadata-missing { background: #fff0ee; border-left: .35rem solid #b33a2b; }
+.upli-metadata-review ul { margin: .4rem 0 0; padding-left: 1.2rem; }
+.upli-metadata-ready { background: #eaf8f2; border-left: .35rem solid #2b7557; }
+.upli-metadata-missing { margin: 1rem; }
+
+@media (max-width: 560px) {
+  .upli-sign-metadata dl { grid-template-columns: 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .upli-sign-card * { transition-duration: .01ms !important; animation-duration: .01ms !important; }
+}

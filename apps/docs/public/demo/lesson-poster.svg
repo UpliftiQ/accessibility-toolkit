@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-labelledby="title desc">
+  <title id="title">Photosynthesis lesson placeholder</title>
+  <desc id="desc">A green leaf under a yellow sun with labels for water and carbon dioxide.</desc>
+  <rect width="1280" height="720" fill="#f4d56d"/>
+  <circle cx="1040" cy="140" r="78" fill="#ff725e"/>
+  <path d="M645 530C410 380 460 155 805 184c28 325-160 404-160 346Z" fill="#338b61"/>
+  <path d="M650 520 785 210" stroke="#174e39" stroke-width="18" stroke-linecap="round"/>
+  <g font-family="system-ui, sans-serif" fill="#11152f">
+    <text x="70" y="90" font-size="34" font-weight="800">LESSON 04</text>
+    <text x="70" y="150" font-size="70" font-weight="900">Photosynthesis</text>
+    <text x="70" y="650" font-size="28" font-weight="700">Teaching-video placeholder — add rights-cleared media</text>
+  </g>
+</svg>

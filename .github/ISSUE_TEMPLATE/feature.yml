@@ -1,0 +1,30 @@
+name: Feature proposal
+description: Propose a user-centred improvement.
+title: "[Proposal]: "
+labels: [proposal, needs-discussion]
+body:
+  - type: textarea
+    id: user-need
+    attributes:
+      label: User need
+      description: Who needs this, and what can they not do today?
+    validations:
+      required: true
+  - type: textarea
+    id: behaviour
+    attributes:
+      label: Proposed behaviour
+      description: Describe the result without requiring one implementation.
+    validations:
+      required: true
+  - type: textarea
+    id: accessibility
+    attributes:
+      label: Accessibility considerations
+      description: Consider keyboard use, captions, transcripts, visual states, motion and sign-language presentation.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered

@@ -1,0 +1,37 @@
+{
+  "name": "@upliftiq/caption-player",
+  "version": "0.1.0",
+  "description": "Accessible React media player with WebVTT captions, transcript navigation and sign-language video layouts.",
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./styles.css": "./dist/index.css"
+  },
+  "files": ["dist", "README.md", "LICENSE"],
+  "sideEffects": ["**/*.css"],
+  "keywords": ["accessibility", "captions", "deaf", "react", "sign-language", "transcript", "webvtt"],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/upliftiq/accessibility-toolkit.git",
+    "directory": "packages/caption-player"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsup src/index.ts --format esm,cjs --dts --sourcemap --clean",
+    "typecheck": "tsc -p tsconfig.json"
+  },
+  "peerDependencies": {
+    "react": ">=18.2.0 <20",
+    "react-dom": ">=18.2.0 <20"
+  }
+}

@@ -1,0 +1,38 @@
+name: Accessibility barrier
+description: Report a barrier involving keyboard use, captions, transcripts, sign-language media or visual communication.
+title: "[Accessibility]: "
+labels: [accessibility, needs-triage]
+body:
+  - type: markdown
+    attributes:
+      value: Thank you. For sensitive information, email hi@upliftiq.in instead of opening a public issue.
+  - type: input
+    id: component
+    attributes:
+      label: Component or page
+    validations:
+      required: true
+  - type: textarea
+    id: task
+    attributes:
+      label: Task and barrier
+      description: What were you trying to do, and what stopped or slowed you?
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected accessible behaviour
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Device, browser and assistive technology (optional)
+  - type: dropdown
+    id: impact
+    attributes:
+      label: Impact
+      options: ["Blocks completion", "Causes major difficulty", "Causes some difficulty", "Suggestion"]
+    validations:
+      required: true

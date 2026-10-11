@@ -1,0 +1,40 @@
+name: Bug report
+description: Report reproducible incorrect behaviour.
+title: "[Bug]: "
+labels: [bug, needs-triage]
+body:
+  - type: markdown
+    attributes:
+      value: Do not include private learner data or non-public media.
+  - type: input
+    id: package
+    attributes:
+      label: Package and version
+      placeholder: "@upliftiq/caption-player 0.1.0"
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What happened?
+      description: Explain the actual and expected result.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Reproduction steps
+      placeholder: "1. Open…\n2. Press…\n3. Observe…"
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Browser, operating system and assistive technology
+  - type: dropdown
+    id: blocker
+    attributes:
+      label: Does this block task completion?
+      options: ["Yes", "Partially", "No"]
+    validations:
+      required: true

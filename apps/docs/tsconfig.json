@@ -1,0 +1,14 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "noEmit": true,
+    "types": ["vite/client", "node"],
+    "baseUrl": ".",
+    "paths": {
+      "@upliftiq/caption-player": ["../../packages/caption-player/src/index.ts"],
+      "@upliftiq/deaf-ui": ["../../packages/deaf-ui/src/index.ts"],
+      "@upliftiq/isl-tools": ["../../packages/isl-tools/src/index.ts"]
+    }
+  },
+  "include": ["src", "vite.config.ts"]
+}
