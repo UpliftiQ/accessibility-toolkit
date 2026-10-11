@@ -1,0 +1,110 @@
+diff --git a/.github/workflows/ci.yml b/.github/workflows/ci.yml
+index 323d749..7f06fb2 100644
+--- a/.github/workflows/ci.yml
++++ b/.github/workflows/ci.yml
+@@ -18,7 +18,7 @@ jobs:
+           version: 11.25.0
+       - uses: actions/setup-node@v4
+         with:
+-          node-version: 20
++          node-version: 22.13.0
+           cache: pnpm
+       - run: pnpm install --frozen-lockfile
+       - run: pnpm typecheck
+@@ -35,7 +35,7 @@ jobs:
+           version: 11.25.0
+       - uses: actions/setup-node@v4
+         with:
+-          node-version: 20
++          node-version: 22.13.0
+           cache: pnpm
+       - run: pnpm install --frozen-lockfile
+       - run: pnpm build
+diff --git a/.github/workflows/docs.yml b/.github/workflows/docs.yml
+index 657bf34..3b46a70 100644
+--- a/.github/workflows/docs.yml
++++ b/.github/workflows/docs.yml
+@@ -24,10 +24,12 @@ jobs:
+           version: 11.25.0
+       - uses: actions/setup-node@v4
+         with:
+-          node-version: 20
++          node-version: 22.13.0
+           cache: pnpm
+       - run: pnpm install --frozen-lockfile
+       - run: pnpm build
++        env:
++          VITE_BASE_PATH: /accessibility-toolkit/
+       - uses: actions/configure-pages@v5
+       - uses: actions/upload-pages-artifact@v3
+         with:
+diff --git a/.github/workflows/release.yml b/.github/workflows/release.yml
+index 7e3e8c8..dfadd4e 100644
+--- a/.github/workflows/release.yml
++++ b/.github/workflows/release.yml
+@@ -19,12 +19,25 @@ jobs:
+           version: 11.25.0
+       - uses: actions/setup-node@v4
+         with:
+-          node-version: 20
++          node-version: 22.13.0
+           cache: pnpm
+           registry-url: https://registry.npmjs.org
+       - run: pnpm install --frozen-lockfile
+       - run: pnpm check
++      - name: Check npm publishing configuration
++        id: npm-auth
++        shell: bash
++        env:
++          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
++        run: |
++          if [ -n "$NPM_TOKEN" ]; then
++            echo "configured=true" >> "$GITHUB_OUTPUT"
++          else
++            echo "configured=false" >> "$GITHUB_OUTPUT"
++            echo "::notice::NPM_TOKEN is not configured; package publishing is skipped."
++          fi
+       - name: Create release pull request or publish
++        if: steps.npm-auth.outputs.configured == 'true'
+         uses: changesets/action@v1
+         with:
+           publish: pnpm release
+diff --git a/CONTRIBUTING.md b/CONTRIBUTING.md
+index 04ba587..5a413cb 100644
+--- a/CONTRIBUTING.md
++++ b/CONTRIBUTING.md
+@@ -20,7 +20,7 @@ pnpm check
+ pnpm dev
+ ```
+ 
+-Use Node 20.19 or later and pnpm 11 or later.
++Use Node 22.13 or later and pnpm 11 or later.
+ 
+ ## Development commands
+ 
+diff --git a/apps/docs/vite.config.ts b/apps/docs/vite.config.ts
+index 1a3e703..7175c00 100644
+--- a/apps/docs/vite.config.ts
++++ b/apps/docs/vite.config.ts
+@@ -4,7 +4,7 @@ import { fileURLToPath, URL } from "node:url";
+ 
+ export default defineConfig({
+   plugins: [react()],
+-  base: process.env.GITHUB_ACTIONS ? "/accessibility-toolkit/" : "/",
++  base: process.env.VITE_BASE_PATH ?? "/",
+   resolve: {
+     alias: {
+       "@upliftiq/caption-player": fileURLToPath(new URL("../../packages/caption-player/src/index.ts", import.meta.url)),
+diff --git a/package.json b/package.json
+index d7fd49d..998fb5a 100644
+--- a/package.json
++++ b/package.json
+@@ -6,7 +6,7 @@
+   "license": "MIT",
+   "packageManager": "pnpm@11.25.0",
+   "engines": {
+-    "node": ">=20.19.0",
++    "node": ">=22.13.0",
+     "pnpm": ">=11.0.0"
+   },
+   "scripts": {
