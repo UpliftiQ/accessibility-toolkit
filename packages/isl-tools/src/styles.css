@@ -1,4 +1,4 @@
-.upli-sign-card { --upli-ink: #11152f; --upli-paper: #fffdf8; --upli-line: #d9d5cb; --upli-accent: #6757ff; color: var(--upli-ink); background: var(--upli-paper); border: 1px solid var(--upli-line); border-radius: 1rem; overflow: hidden; font: 400 1rem/1.5 Inter, ui-sans-serif, system-ui, sans-serif; }
+.upli-sign-card { --upli-ink: #11152f; --upli-paper: #fffdf8; --upli-line: #d9d5cb; --upli-accent: #5341d9; color: var(--upli-ink); background: var(--upli-paper); border: 1px solid var(--upli-line); border-radius: 1rem; overflow: hidden; font: 400 1rem/1.5 Inter, ui-sans-serif, system-ui, sans-serif; }
 .upli-sign-card * { box-sizing: border-box; }
 .upli-sign-card video:focus-visible, .upli-sign-card summary:focus-visible { outline: 3px solid #005fcc; outline-offset: 3px; }
 .upli-sign-card > header { padding: 1.2rem; }
