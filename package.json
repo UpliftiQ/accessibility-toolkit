@@ -41,7 +41,7 @@
     "@vitejs/plugin-react": "^5.0.4",
     "axe-core": "^4.10.3",
     "jsdom": "^27.0.1",
-    "react": "^19.2.0",
+    "react": "^19.3.1",
     "react-dom": "^19.2.0",
     "storybook": "^9.1.10",
     "tsup": "^8.5.0",
